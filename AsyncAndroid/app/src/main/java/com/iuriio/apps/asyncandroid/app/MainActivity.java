@@ -1,6 +1,7 @@
 package com.iuriio.apps.asyncandroid.app;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -50,24 +51,29 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        final FragmentManager fragmentManager = getSupportFragmentManager();
+        final android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
+
+        switch (position) {
+            case 0:
+                mTitle = getString(R.string.nav_controlling_threads);
+                ft.replace(R.id.container, Fragment.instantiate(this, PatientWaitFragment.class.getName()));
+                break;
+            case 1:
+                mTitle = getString(R.string.title_section2);
+                ft.replace(R.id.container, PlaceholderFragment.newInstance(1));
+                break;
+            case 2:
+                mTitle = getString(R.string.title_section3);
+                ft.replace(R.id.container, PlaceholderFragment.newInstance(2));
+                break;
+        }
+
+        ft.commit();
     }
 
     public void onSectionAttached(int number) {
-        switch (number) {
-            case 1:
-                mTitle = getString(R.string.title_section1);
-                break;
-            case 2:
-                mTitle = getString(R.string.title_section2);
-                break;
-            case 3:
-                mTitle = getString(R.string.title_section3);
-                break;
-        }
+
     }
 
     public void restoreActionBar() {
