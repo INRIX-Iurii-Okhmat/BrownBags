@@ -1,0 +1,13 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.iuriio.apps.asyncandroid.app.StrictModeFragment">
+
+    <Button
+        android:id="@+id/strict_mode_cause_problems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cause I/O on UI thread"/>
+
+</FrameLayout>
