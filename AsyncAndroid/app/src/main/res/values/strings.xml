@@ -11,8 +11,12 @@
     <string name="nav_strict_mode">Strict mode</string>
     <string name="nav_async_task">Async task</string>
     <string name="nav_handlers">Handlers</string>
+    <string name="nav_intent_service">Intent service</string>
+    <string name="nav_cyclic_barrier">Cyclic barriers</string>
+    <string name="nav_producer_consumer">Producer / consumer</string>
 
     <!-- Other stuff -->
     <string name="done">Done!</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

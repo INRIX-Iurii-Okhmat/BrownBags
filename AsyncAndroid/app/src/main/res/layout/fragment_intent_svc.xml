@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.iuriio.apps.asyncandroid.app.IntentSvcFragment">
+
+    <Button
+        android:id="@+id/notice_svc_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Intent Service"/>
+
+    <TextView
+        android:id="@+id/notice_svc_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Waiting for a notice from Local Service" />
+
+    <ImageView
+        android:id="@+id/notice_svc_img"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_launcher"/>
+
+</LinearLayout>

@@ -13,14 +13,14 @@ import java.util.ArrayList;
  * Created by IuriiO on 4/2/2014.
  */
 public class AsyncTaskFragment extends ListFragment {
-    private static final String[] items= { "lorem", "ipsum", "dolor",
+    private static final String[] items = {"lorem", "ipsum", "dolor",
             "sit", "amet", "consectetuer", "adipiscing", "elit", "morbi",
             "vel", "ligula", "vitae", "arcu", "aliquet", "mollis", "etiam",
             "vel", "erat", "placerat", "ante", "porttitor", "sodales",
-            "pellentesque", "augue", "purus" };
-    private ArrayList<String> model=null;
-    private ArrayAdapter<String> adapter=null;
-    private AddStringTask task=null;
+            "pellentesque", "augue", "purus"};
+    private ArrayList<String> model;
+    private ArrayAdapter<String> adapter;
+    private AddStringTask task;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -29,12 +29,12 @@ public class AsyncTaskFragment extends ListFragment {
         setRetainInstance(true);
 
         if (model == null) {
-            model=new ArrayList<String>();
-            task=new AddStringTask();
+            model = new ArrayList<String>();
+            task = new AddStringTask();
             task.execute();
         }
 
-        adapter=
+        adapter =
                 new ArrayAdapter<String>(getActivity(),
                         android.R.layout.simple_list_item_1,
                         model);
@@ -62,7 +62,7 @@ public class AsyncTaskFragment extends ListFragment {
                 }
             }
 
-            return(null);
+            return null;
         }
 
         @Override
@@ -77,7 +77,7 @@ public class AsyncTaskFragment extends ListFragment {
                         .show();
             }
 
-            task=null;
+            task = null;
         }
     }
 }

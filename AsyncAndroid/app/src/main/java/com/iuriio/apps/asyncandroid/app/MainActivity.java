@@ -1,6 +1,7 @@
 package com.iuriio.apps.asyncandroid.app;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -49,19 +50,32 @@ public class MainActivity extends ActionBarActivity
                 ft.replace(R.id.container, Fragment.instantiate(this, PatientWaitFragment.class.getName()));
                 break;
             case 1:
+                this.mTitle = this.getString(R.string.nav_cyclic_barrier);
+                ft.replace(R.id.container, Fragment.instantiate(this, CyclicBarrierFragment.class.getName()));
+                break;
+            case 2:
+                this.mTitle = this.getString(R.string.nav_producer_consumer);
+                ft.replace(R.id.container, Fragment.instantiate(this, ProducerConsumerFragment.class.getName()));
+                break;
+            case 3:
                 this.mTitle = this.getString(R.string.nav_strict_mode);
                 ft.replace(R.id.container, Fragment.instantiate(this, StrictModeFragment.class.getName()));
                 break;
-            case 2:
+            case 4:
                 mTitle = getString(R.string.nav_handlers);
                 ft.replace(R.id.container, Fragment.instantiate(this, HandlerFragment.class.getName()));
                 break;
-            case 3:
+            case 5:
                 mTitle = getString(R.string.nav_async_task);
                 ft.replace(R.id.container, Fragment.instantiate(this, AsyncTaskFragment.class.getName()));
                 break;
-
+            case 6:
+                this.mTitle = this.getString(R.string.nav_intent_service);
+                ft.replace(R.id.container, Fragment.instantiate(this, IntentSvcFragment.class.getName()));
+                break;
         }
+
+        final Handler uiHandler = this.getWindow().getDecorView().getHandler();
 
         ft.commit();
     }
