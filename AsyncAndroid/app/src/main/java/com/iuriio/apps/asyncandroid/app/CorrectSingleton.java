@@ -1,19 +1,16 @@
 package com.iuriio.apps.asyncandroid.app;
 
-/**
- * Created by IuriiO on 4/1/2014.
- */
 public class CorrectSingleton {
-    private volatile CorrectSingleton helper = null;
+    private static volatile CorrectSingleton instance = null;
 
-    public CorrectSingleton getInstance() {
-        if (helper == null) {
-            synchronized(this) {
-                if (helper == null)
-                    helper = new CorrectSingleton();
+    public static CorrectSingleton getInstance() {
+        if (instance == null) {
+            synchronized(CorrectSingleton.class) {
+                if (instance == null)
+                    instance = new CorrectSingleton();
             }
         }
 
-        return helper;
+        return instance;
     }
 }
