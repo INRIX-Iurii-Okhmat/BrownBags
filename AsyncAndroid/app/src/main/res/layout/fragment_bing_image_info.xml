@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000"
+    tools:context="com.iuriio.apps.asyncandroid.app.BingImageInfoFragment">
+
+    <TextView
+        android:id="@+id/bing_image_copyright"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#FFF"
+        android:text="Copyright information"/>
+
+    <ImageView
+        android:id="@+id/bing_image_pic"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_launcher"/>
+
+</LinearLayout>

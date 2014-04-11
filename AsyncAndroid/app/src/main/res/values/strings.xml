@@ -2,7 +2,8 @@
 <resources>
 
     <!-- App global text -->
-    <string name="app_name">AsyncAndroid</string>
+    <string name="app_name">Async Android</string>
+    <string name="app_description">Demo application for Async Android brownbag.</string>
 
     <!-- Navigation drawer text -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -14,9 +15,15 @@
     <string name="nav_intent_service">Intent service</string>
     <string name="nav_cyclic_barrier">Cyclic barriers</string>
     <string name="nav_producer_consumer">Producer / consumer</string>
+    <string name="nav_deadlock">Deadlock</string>
+    <string name="nav_main_looper_spy">Main Looper spy</string>
+    <string name="nav_loaders">Loaders</string>
 
     <!-- Other stuff -->
     <string name="done">Done!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_orientation_change">OrientationChangeActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

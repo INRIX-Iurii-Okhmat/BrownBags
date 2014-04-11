@@ -43,6 +43,7 @@ public class CyclicBarrierFragment extends Fragment implements View.OnClickListe
                 Thread.sleep((long)(Math.random() * 1000));
                 updateText(Thread.currentThread().getName() + " reached barrier.");
                 cb.await();
+
                 Thread.sleep(3 * (long)(Math.random() * 1000));
                 updateText(Thread.currentThread().getName() + " crossed barrier.");
             } catch (InterruptedException e) {

@@ -1,9 +1,7 @@
 package com.iuriio.apps.asyncandroid.app;
 
 
-
 import android.annotation.TargetApi;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -19,8 +17,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
 
 
 /**
@@ -94,12 +90,13 @@ public class StrictModeFragment extends Fragment implements View.OnClickListener
             final HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String inputLine = "";
+            String outputLine = "";
             while ((inputLine = in.readLine()) != null) {
-                System.out.println(inputLine);
+                outputLine += inputLine;
             }
             in.close();
 
-            Toast.makeText(this.getActivity(), inputLine, Toast.LENGTH_LONG).show();
+            Toast.makeText(this.getActivity(), outputLine, Toast.LENGTH_LONG).show();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {

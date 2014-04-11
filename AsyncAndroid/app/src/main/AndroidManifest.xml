@@ -2,10 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.iuriio.apps.asyncandroid.app" >
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:description="@string/app_description"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.iuriio.apps.asyncandroid.app.MainActivity"
@@ -17,7 +20,16 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".NoticeService"/>
+        <service android:name="com.iuriio.apps.asyncandroid.app.NoticeService" />
+
+        <activity
+            android:name="com.iuriio.apps.asyncandroid.app.OrientationChangeActivity"
+            android:label="@string/title_activity_orientation_change"
+            android:parentActivityName="com.iuriio.apps.asyncandroid.app.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="MainActivity" />
+        </activity>
     </application>
 
 </manifest>

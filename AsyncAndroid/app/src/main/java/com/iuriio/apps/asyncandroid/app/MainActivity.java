@@ -1,5 +1,6 @@
 package com.iuriio.apps.asyncandroid.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -58,20 +59,31 @@ public class MainActivity extends ActionBarActivity
                 ft.replace(R.id.container, Fragment.instantiate(this, ProducerConsumerFragment.class.getName()));
                 break;
             case 3:
+                this.mTitle = this.getString(R.string.nav_deadlock);
+                ft.replace(R.id.container, Fragment.instantiate(this, DeadlockFragment.class.getName()));
+                break;
+            case 4:
                 this.mTitle = this.getString(R.string.nav_strict_mode);
                 ft.replace(R.id.container, Fragment.instantiate(this, StrictModeFragment.class.getName()));
                 break;
-            case 4:
+            case 5:
                 mTitle = getString(R.string.nav_handlers);
                 ft.replace(R.id.container, Fragment.instantiate(this, HandlerFragment.class.getName()));
                 break;
-            case 5:
+            case 6:
+                this.startActivity(new Intent(this, OrientationChangeActivity.class));
+                break;
+            case 7:
                 mTitle = getString(R.string.nav_async_task);
                 ft.replace(R.id.container, Fragment.instantiate(this, AsyncTaskFragment.class.getName()));
                 break;
-            case 6:
+            case 8:
                 this.mTitle = this.getString(R.string.nav_intent_service);
                 ft.replace(R.id.container, Fragment.instantiate(this, IntentSvcFragment.class.getName()));
+                break;
+            case 9:
+                this.mTitle = this.getString(R.string.nav_loaders);
+                ft.replace(R.id.container, Fragment.instantiate(this, LoaderFragment.class.getName()));
                 break;
         }
 
