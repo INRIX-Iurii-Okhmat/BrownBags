@@ -85,6 +85,10 @@ public class MainActivity extends ActionBarActivity
                 this.mTitle = this.getString(R.string.nav_loaders);
                 ft.replace(R.id.container, Fragment.instantiate(this, LoaderFragment.class.getName()));
                 break;
+            case 10:
+                this.mTitle = this.getString(R.string.nav_loaders_cursor);
+                ft.replace(R.id.container, Fragment.instantiate(this, LoaderCursorFragment.class.getName()));
+                break;
         }
 
         final Handler uiHandler = this.getWindow().getDecorView().getHandler();

@@ -42,7 +42,7 @@ public class CyclicBarrierFragment extends Fragment implements View.OnClickListe
             try {
                 Thread.sleep((long)(Math.random() * 1000));
                 updateText(Thread.currentThread().getName() + " reached barrier.");
-                cb.await();
+                barrier.await();
 
                 Thread.sleep(3 * (long)(Math.random() * 1000));
                 updateText(Thread.currentThread().getName() + " crossed barrier.");
@@ -73,6 +73,7 @@ public class CyclicBarrierFragment extends Fragment implements View.OnClickListe
                              Bundle savedInstanceState) {
         final View content = inflater.inflate(R.layout.fragment_cyclic_barrier, container, false);
 
+        assert content != null;
         content.findViewById(R.id.cyclic_barrier_run).setOnClickListener(this);
         this.text = (TextView) content.findViewById(R.id.cyclic_barrier_text);
 

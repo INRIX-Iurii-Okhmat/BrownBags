@@ -18,6 +18,7 @@
     <string name="nav_deadlock">Deadlock</string>
     <string name="nav_main_looper_spy">Main Looper spy</string>
     <string name="nav_loaders">Loaders</string>
+    <string name="nav_loaders_cursor">Loaders (cursor)</string>
 
     <!-- Other stuff -->
     <string name="done">Done!</string>
