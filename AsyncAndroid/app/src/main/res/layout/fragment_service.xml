@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.iuriio.apps.asyncandroid.app.ServiceFragment">
+
+    <Button
+        android:id="@+id/svc_run"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get prime numbers" />
+
+    <ListView
+        android:id="@+id/svc_prime_list"
+        android:layout_width="fill_parent"
+        android:stackFromBottom="true"
+        android:fastScrollAlwaysVisible="true"
+        android:transcriptMode="alwaysScroll"
+        android:layout_height="fill_parent">
+    </ListView>
+
+</LinearLayout>

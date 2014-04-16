@@ -111,7 +111,8 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.nav_async_task),
                         getString(R.string.nav_intent_service),
                         getString(R.string.nav_loaders),
-                        this.getString(R.string.nav_loaders_cursor)
+                        this.getString(R.string.nav_loaders_cursor),
+                        this.getString(R.string.nav_service)
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
