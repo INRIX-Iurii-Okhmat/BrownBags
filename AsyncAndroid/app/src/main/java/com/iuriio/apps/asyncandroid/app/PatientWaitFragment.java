@@ -66,8 +66,7 @@ public class PatientWaitFragment extends Fragment implements View.OnClickListene
                     // for MessageLoop thread
                     // to finish.
                     t.join(1000);
-                    if (((System.currentTimeMillis() - startTime) > patience)
-                            && t.isAlive()) {
+                    if (((System.currentTimeMillis() - startTime) > patience) && t.isAlive()) {
                         updateText("PT: Enough is enough!");
                         t.interrupt();
                         // Shouldn't be long now
