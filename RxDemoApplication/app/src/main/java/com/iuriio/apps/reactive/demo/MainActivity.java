@@ -4,33 +4,65 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import rx.Subscriber;
+import rx.functions.Action1;
 
 
 public class MainActivity extends Activity {
+    private final Action1<String> stringSubscription = new Action1<String>() {
+        @Override
+        public void call(String s) {
+            System.out.println(s);
+            //outputText.setText(outputText.getText() + s + "\n");
+        }
+    };
+
+    private final Action1<Throwable> errorHandler = new Action1<Throwable>() {
+        @Override
+        public void call(Throwable throwable) {
+            System.out.println(throwable.getMessage());
+        }
+    };
+
+    @InjectView(R.id.output)
+    TextView outputText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
+        ButterKnife.inject(this);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+        // <editor-fold desc="Intro.">
+        // HelloRx.sayHelloTo("Jim", "John", "James");
+        // </editor-fold>
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        // <editor-fold desc="Non-blocking observable.">
+//        NonBlockingObservable
+//                .create()
+//                .subscribe(this.stringSubscription);
+        // </editor-fold>
+
+        // <editor-fold desc="Error handling.">
+//        NonBlockingObservable
+//                .create()
+//                .subscribe(this.stringSubscription, this.errorHandler);
+
+        // <editor-fold desc="Error rewriting">
+//                .onErrorResumeNext(new Func1<Throwable, Observable<? extends String>>() {
+//                    @Override
+//                    public Observable<? extends String> call(Throwable throwable) {
+//                        final Throwable customException = new Exception("Custom: " + throwable.getMessage());
+//                        return Observable.error(customException);
+//                    }
+//                })
+        // </editor-fold>
+
+        // </editor-fold>
     }
 }
