@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CreatingObservablesActivity"
+            android:label="@string/action_creating_observables"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.iuriio.apps.reactive.demo.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

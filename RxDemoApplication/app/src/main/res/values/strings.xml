@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">Reactive Android</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+
+    <!-- Menu items -->
+    <string name="action_creating_observables">1. Creating Observables</string>
 
 </resources>

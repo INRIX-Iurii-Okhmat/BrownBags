@@ -1,6 +1,7 @@
 package com.iuriio.apps.reactive.demo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -64,5 +65,23 @@ public class MainActivity extends Activity {
         // </editor-fold>
 
         // </editor-fold>
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_creating_observables:
+                this.startActivity(new Intent(this, CreatingObservablesActivity.class));
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
