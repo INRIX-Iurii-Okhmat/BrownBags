@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import rx.Subscriber;
 import rx.functions.Action1;
 
 
@@ -79,6 +78,9 @@ public class MainActivity extends Activity {
         switch (id) {
             case R.id.action_creating_observables:
                 this.startActivity(new Intent(this, CreatingObservablesActivity.class));
+                return true;
+            case R.id.action_transforming_observables:
+                this.startActivity(new Intent(this, TransformingObservablesActivity.class));
                 return true;
         }
 
