@@ -6,5 +6,6 @@
     <!-- Menu items -->
     <string name="action_creating_observables">1. Creating Observables</string>
     <string name="action_transforming_observables">2. Transforming Observables</string>
+    <string name="action_filtering_observables">3. Filtering Observables</string>
 
 </resources>

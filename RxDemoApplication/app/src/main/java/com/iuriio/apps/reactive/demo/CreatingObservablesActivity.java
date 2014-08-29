@@ -1,16 +1,8 @@
 package com.iuriio.apps.reactive.demo;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.TextView;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
 import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
@@ -19,45 +11,32 @@ import rx.functions.Action1;
 import rx.functions.Func0;
 
 
-public class CreatingObservablesActivity extends Activity {
-    @InjectView(R.id.output)
-    TextView outputText;
+public class CreatingObservablesActivity extends BaseActivity {
+    private Subscription subscriber;
 
     // <editor-fold desc="Boilerplate">
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_creating_observables);
-
-        ButterKnife.inject(this);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.creating_observables, menu);
-        return true;
+    protected int getMenuResource() {
+        return R.menu.creating_observables;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    protected boolean onMenuItemClick(int id) {
         this.outputText.setText("");
 
-        int id = item.getItemId();
         switch (id) {
             case R.id.action_create_observable_from:
                 this.observe(this.testFromObservable());
-                return true;
+                break;
             case R.id.action_create_observable_create:
                 this.observe(this.testCreateObservable());
-                return true;
+                break;
             case R.id.action_create_observable_defer:
                 this.observe(this.testDeferObservable());
-                return true;
+                break;
         }
 
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     // </editor-fold>
@@ -91,16 +70,13 @@ public class CreatingObservablesActivity extends Activity {
         return Observable.defer(new Func0<Observable<Integer>>() {
             @Override
             public Observable<Integer> call() {
-                return Observable.from(new Integer[] {1, 2, 3, 4, 5});
+                return Observable.from(new Integer[]{1, 2, 3, 4, 5});
             }
         });
     }
 
-    //<editor-fold desc="Observe">
-    private Subscription subscriber;
-
     private void observe(Observable<?> observable) {
-        if(this.subscriber != null && !this.subscriber.isUnsubscribed()) {
+        if (this.subscriber != null && !this.subscriber.isUnsubscribed()) {
             this.subscriber.unsubscribe();
         }
 
@@ -113,5 +89,4 @@ public class CreatingObservablesActivity extends Activity {
                     }
                 });
     }
-    //</editor-fold>
 }

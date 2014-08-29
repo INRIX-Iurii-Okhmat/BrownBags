@@ -1,24 +1,15 @@
 package com.iuriio.apps.reactive.demo;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.TextView;
-
 import java.util.Arrays;
 import java.util.List;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.observables.GroupedObservable;
 
-
-public class TransformingObservablesActivity extends Activity {
+public class TransformingObservablesActivity extends BaseActivity {
     private final Observable<Integer> integerObservable = Observable.range(1, 10);
 
     private final Observable.OnSubscribe observer = new Observable.OnSubscribe() {
@@ -28,29 +19,17 @@ public class TransformingObservablesActivity extends Activity {
         }
     };
 
-    @InjectView(R.id.output)
-    TextView outputText;
-
     //<editor-fold desc="Boilerplate">
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_transforming_observables);
-
-        ButterKnife.inject(this);
+    protected int getMenuResource() {
+        return R.menu.transforming_observables;
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.transforming_observables, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    protected boolean onMenuItemClick(int id) {
         outputText.setText("");
 
-        switch (item.getItemId()) {
+        switch (id) {
             case R.id.action_transform_map:
                 this.transformMap(integerObservable.observeOn(AndroidSchedulers.mainThread()));
                 return true;
@@ -65,8 +44,9 @@ public class TransformingObservablesActivity extends Activity {
                 return true;
         }
 
-        return super.onOptionsItemSelected(item);
+        return true;
     }
+
     //</editor-fold>
 
     private void transformMap(Observable<Integer> observable) {
@@ -100,12 +80,6 @@ public class TransformingObservablesActivity extends Activity {
                         return value % 2 == 0;
                     }
                 })
-                .map(new Func1<GroupedObservable<Boolean, Integer>, GroupedObservable<Boolean, Integer>>() {
-                    @Override
-                    public GroupedObservable<Boolean, Integer> call(GroupedObservable<Boolean, Integer> booleanIntegerGroupedObservable) {
-                        return booleanIntegerGroupedObservable;
-                    }
-                })
                 .subscribe(new Action1<GroupedObservable<Boolean, Integer>>() {
                     @Override
                     public void call(final GroupedObservable<Boolean, Integer> observable1) {
@@ -126,7 +100,5 @@ public class TransformingObservablesActivity extends Activity {
                 outputText.append(Arrays.toString(integers.toArray()) + "\n");
             }
         });
-
-        Observable.crea
     }
 }

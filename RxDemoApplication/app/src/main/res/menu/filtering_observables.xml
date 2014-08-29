@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.iuriio.apps.reactive.demo.FilteringObservablesActivity" >
+    <item android:id="@+id/action_filter"
+        android:title="1. filter()"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+</menu>
