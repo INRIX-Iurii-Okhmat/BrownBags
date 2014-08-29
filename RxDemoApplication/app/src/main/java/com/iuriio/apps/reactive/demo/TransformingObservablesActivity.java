@@ -6,11 +6,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.Arrays;
+import java.util.List;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.functions.Func1;
+import rx.observables.GroupedObservable;
 
 
 public class TransformingObservablesActivity extends Activity {
@@ -47,10 +52,16 @@ public class TransformingObservablesActivity extends Activity {
 
         switch (item.getItemId()) {
             case R.id.action_transform_map:
-                this.trasformMap(integerObservable.observeOn(AndroidSchedulers.mainThread()));
+                this.transformMap(integerObservable.observeOn(AndroidSchedulers.mainThread()));
                 return true;
             case R.id.action_transform_flatmap:
                 this.transformFlatMap(integerObservable.observeOn(AndroidSchedulers.mainThread()));
+                return true;
+            case R.id.action_transform_groupby:
+                this.transformGroupBy(integerObservable.observeOn(AndroidSchedulers.mainThread()));
+                return true;
+            case R.id.action_transform_buffer:
+                this.transformBuffer(integerObservable.observeOn(AndroidSchedulers.mainThread()));
                 return true;
         }
 
@@ -58,7 +69,7 @@ public class TransformingObservablesActivity extends Activity {
     }
     //</editor-fold>
 
-    private void trasformMap(Observable<Integer> observable) {
+    private void transformMap(Observable<Integer> observable) {
         observable.map(new Func1<Integer, Integer>() {
             @Override
             public Integer call(Integer o) {
@@ -79,5 +90,43 @@ public class TransformingObservablesActivity extends Activity {
                 );
             }
         }).subscribe(this.observer);
+    }
+
+    private void transformGroupBy(final Observable<Integer> observable) {
+        observable
+                .groupBy(new Func1<Integer, Boolean>() {
+                    @Override
+                    public Boolean call(Integer value) {
+                        return value % 2 == 0;
+                    }
+                })
+                .map(new Func1<GroupedObservable<Boolean, Integer>, GroupedObservable<Boolean, Integer>>() {
+                    @Override
+                    public GroupedObservable<Boolean, Integer> call(GroupedObservable<Boolean, Integer> booleanIntegerGroupedObservable) {
+                        return booleanIntegerGroupedObservable;
+                    }
+                })
+                .subscribe(new Action1<GroupedObservable<Boolean, Integer>>() {
+                    @Override
+                    public void call(final GroupedObservable<Boolean, Integer> observable1) {
+                        observable1.map(new Func1<Integer, Object>() {
+                            @Override
+                            public Object call(final Integer integer) {
+                                return observable1.getKey() + ": " + integer;
+                            }
+                        }).subscribe(observer);
+                    }
+                });
+    }
+
+    private void transformBuffer(Observable<Integer> observable) {
+        observable.buffer(3).subscribe(new Action1<List<Integer>>() {
+            @Override
+            public void call(List<Integer> integers) {
+                outputText.append(Arrays.toString(integers.toArray()) + "\n");
+            }
+        });
+
+        Observable.crea
     }
 }
