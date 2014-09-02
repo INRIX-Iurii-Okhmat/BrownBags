@@ -1,8 +1,39 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.iuriio.apps.reactive.demo.FilteringObservablesActivity" >
-    <item android:id="@+id/action_filter"
-        android:title="1. filter()"
+    tools:context="com.iuriio.apps.reactive.demo.FilteringObservablesActivity">
+    <item
+        android:id="@+id/action_filter"
         android:orderInCategory="100"
-        android:showAsAction="never" />
+        android:showAsAction="never"
+        android:title="1. filter()" />
+
+    <item
+        android:id="@+id/action_skip"
+        android:orderInCategory="200"
+        android:showAsAction="never"
+        android:title="2. skip()" />
+
+    <item
+        android:id="@+id/action_take"
+        android:orderInCategory="300"
+        android:showAsAction="never"
+        android:title="3. take()" />
+
+    <item
+        android:id="@+id/action_skiptake"
+        android:orderInCategory="400"
+        android:showAsAction="never"
+        android:title="4. skip()-take()" />
+
+    <item
+        android:id="@+id/action_takeskip"
+        android:orderInCategory="500"
+        android:showAsAction="never"
+        android:title="4. take()-skip()" />
+
+    <item
+        android:id="@+id/action_distinct"
+        android:orderInCategory="600"
+        android:showAsAction="never"
+        android:title="4. distinct()" />
 </menu>
