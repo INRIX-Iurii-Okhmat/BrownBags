@@ -8,7 +8,10 @@ public class FilteringObservablesActivity extends BaseActivity {
     private final Observable<Integer> integerObservable =
             Observable.range(1, 20).observeOn(AndroidSchedulers.mainThread());
 
-    private final Integer[] items = new Integer[] {  };
+    private final Integer[] items = new Integer[] { 1, 2, 3, 4, 4, 2, 4, 3, 2, 1, 3, 5, 6, 3, 1 };
+
+    private final Observable<Integer> integerObservable2 =
+            Observable.from(items).observeOn(AndroidSchedulers.mainThread());
 
     private final Observable.OnSubscribe observer = new Observable.OnSubscribe() {
         @Override
@@ -18,6 +21,7 @@ public class FilteringObservablesActivity extends BaseActivity {
     };
 
     //<editor-fold desc="Boilerplate">
+
     @Override
     protected int getMenuResource() {
         return R.menu.filtering_observables;
@@ -43,10 +47,14 @@ public class FilteringObservablesActivity extends BaseActivity {
             case R.id.action_takeskip:
                 this.testTakeSkip(this.integerObservable);
                 return true;
+            case R.id.action_distinct:
+                this.testDistinct(this.integerObservable2);
+                return true;
         }
 
         return false;
     }
+
     //</editor-fold>
 
     private void testFilter(final Observable<Integer> observable) {
@@ -72,5 +80,9 @@ public class FilteringObservablesActivity extends BaseActivity {
 
     private void testTakeSkip(final Observable<Integer> observable) {
         observable.take(5).skip(2).subscribe(observer);
+    }
+
+    private void testDistinct(final Observable<Integer> observable) {
+        observable.distinct().subscribe(observer);
     }
 }
