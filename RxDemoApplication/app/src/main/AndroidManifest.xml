@@ -40,6 +40,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.iuriio.apps.reactive.demo.MainActivity" />
         </activity>
+        <activity
+            android:name=".CombiningObservablesActivity"
+            android:label="@string/action_combining_observables"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.iuriio.apps.reactive.demo.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

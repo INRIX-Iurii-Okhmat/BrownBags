@@ -20,6 +20,9 @@ public class MainActivity extends BaseActivity {
             case R.id.action_filtering_observables:
                 this.startActivity(new Intent(this, FilteringObservablesActivity.class));
                 return true;
+            case R.id.action_combining_observables:
+                this.startActivity(new Intent(this, CombiningObservablesActivity.class));
+                return true;
         }
 
         return false;
