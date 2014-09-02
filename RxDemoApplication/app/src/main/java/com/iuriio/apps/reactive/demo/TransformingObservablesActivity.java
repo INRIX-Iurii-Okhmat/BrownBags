@@ -10,7 +10,8 @@ import rx.functions.Func1;
 import rx.observables.GroupedObservable;
 
 public class TransformingObservablesActivity extends BaseActivity {
-    private final Observable<Integer> integerObservable = Observable.range(1, 10);
+    private final Observable<Integer> integerObservable = Observable.range(1, 10)
+            .observeOn(AndroidSchedulers.mainThread());
 
     private final Observable.OnSubscribe observer = new Observable.OnSubscribe() {
         @Override
@@ -27,20 +28,18 @@ public class TransformingObservablesActivity extends BaseActivity {
 
     @Override
     protected boolean onMenuItemClick(int id) {
-        outputText.setText("");
-
         switch (id) {
             case R.id.action_transform_map:
-                this.transformMap(integerObservable.observeOn(AndroidSchedulers.mainThread()));
+                this.transformMap(integerObservable);
                 return true;
             case R.id.action_transform_flatmap:
-                this.transformFlatMap(integerObservable.observeOn(AndroidSchedulers.mainThread()));
+                this.transformFlatMap(integerObservable);
                 return true;
             case R.id.action_transform_groupby:
-                this.transformGroupBy(integerObservable.observeOn(AndroidSchedulers.mainThread()));
+                this.transformGroupBy(integerObservable);
                 return true;
             case R.id.action_transform_buffer:
-                this.transformBuffer(integerObservable.observeOn(AndroidSchedulers.mainThread()));
+                this.transformBuffer(integerObservable);
                 return true;
         }
 

@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.iuriio.apps.reactive.demo.ErrorHandlingActivity">
+    <item
+        android:id="@+id/action_on_error_resume_next"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="1. onErrorResumeNext()" />
+
+    <item
+        android:id="@+id/action_retry"
+        android:orderInCategory="200"
+        android:showAsAction="never"
+        android:title="1. retry()" />
+</menu>

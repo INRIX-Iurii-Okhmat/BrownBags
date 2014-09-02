@@ -29,8 +29,6 @@ public class FilteringObservablesActivity extends BaseActivity {
 
     @Override
     protected boolean onMenuItemClick(int id) {
-        outputText.setText("");
-
         switch (id) {
             case R.id.action_filter:
                 this.testFilter(this.integerObservable);

@@ -24,4 +24,10 @@
         android:orderInCategory="400"
         android:showAsAction="never"
         android:title="@string/action_combining_observables" />
+
+    <item
+        android:id="@+id/action_error_handling"
+        android:orderInCategory="500"
+        android:showAsAction="never"
+        android:title="@string/action_error_handling" />
 </menu>

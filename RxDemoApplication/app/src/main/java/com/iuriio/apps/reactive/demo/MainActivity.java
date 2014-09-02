@@ -23,6 +23,9 @@ public class MainActivity extends BaseActivity {
             case R.id.action_combining_observables:
                 this.startActivity(new Intent(this, CombiningObservablesActivity.class));
                 return true;
+            case R.id.action_error_handling:
+                this.startActivity(new Intent(this, ErrorHandlingActivity.class));
+                return true;
         }
 
         return false;

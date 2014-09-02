@@ -30,6 +30,7 @@ public abstract class BaseActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        outputText.setText("");
         return this.onMenuItemClick(item.getItemId()) ? true : super.onOptionsItemSelected(item);
     }
 

@@ -48,6 +48,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.iuriio.apps.reactive.demo.MainActivity" />
         </activity>
+        <activity
+            android:name=".ErrorHandlingActivity"
+            android:label="@string/action_error_handling"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.iuriio.apps.reactive.demo.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

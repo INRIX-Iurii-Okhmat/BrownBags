@@ -22,8 +22,6 @@ public class CreatingObservablesActivity extends BaseActivity {
 
     @Override
     protected boolean onMenuItemClick(int id) {
-        this.outputText.setText("");
-
         switch (id) {
             case R.id.action_create_observable_from:
                 this.observe(this.testFromObservable());
@@ -48,7 +46,7 @@ public class CreatingObservablesActivity extends BaseActivity {
 
     private Observable<Long> testCreateObservable() {
         return Observable.create(new Observable.OnSubscribe<Long>() {
-            private Timer timer = new Timer();
+            private final Timer timer = new Timer();
 
             @Override
             public void call(final Subscriber<? super Long> subscriber) {
@@ -56,6 +54,7 @@ public class CreatingObservablesActivity extends BaseActivity {
                     @Override
                     public void run() {
                         if (subscriber.isUnsubscribed()) {
+                            timer.cancel();
                             return;
                         }
 
