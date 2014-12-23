@@ -30,4 +30,10 @@
         android:orderInCategory="500"
         android:showAsAction="never"
         android:title="@string/action_error_handling" />
+
+    <item
+        android:id="@+id/action_utility_methods"
+        android:orderInCategory="600"
+        android:showAsAction="never"
+        android:title="@string/action_utility_methods" />
 </menu>

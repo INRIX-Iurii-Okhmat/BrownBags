@@ -26,6 +26,9 @@ public class MainActivity extends BaseActivity {
             case R.id.action_error_handling:
                 this.startActivity(new Intent(this, ErrorHandlingActivity.class));
                 return true;
+            case R.id.action_utility_methods:
+                this.startActivity(new Intent(this, UtilityMethodsObservableActivity.class));
+                return true;
         }
 
         return false;

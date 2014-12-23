@@ -9,5 +9,6 @@
     <string name="action_filtering_observables">3. Filtering Observables</string>
     <string name="action_combining_observables">4. Combining Observables</string>
     <string name="action_error_handling">5. Error Handling</string>
+    <string name="action_utility_methods">6. Utility Methods</string>
 
 </resources>
