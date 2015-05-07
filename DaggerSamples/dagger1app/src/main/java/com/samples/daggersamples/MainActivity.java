@@ -1,38 +1,63 @@
 package com.samples.daggersamples;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
 
+import javax.inject.Inject;
 
-public class MainActivity extends ActionBarActivity {
+import dagger.ObjectGraph;
 
+/**
+ * Main activity.
+ */
+public class MainActivity extends ActionBarActivity implements ScopedGraphProvider {
+    @Inject
+    @ForApplication
+    protected Context context;
+
+    @Inject
+    protected Resources resources;
+
+    private ObjectGraph scopedGraph;
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        this.setContentView(R.layout.activity_main);
+
+        this.scopedGraph = App.get().graph().plus(
+                new ActivityModule(this));
+
+        this.scopedGraph.inject(this);
+
+        this.getFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragment_container, new CustomFragment())
+                .commit();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    public ObjectGraph getGraph() {
+        return this.scopedGraph;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    protected void onDestroy() {
+        super.onDestroy();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        // ALWAYS!
+        this.scopedGraph = null;
     }
 }
