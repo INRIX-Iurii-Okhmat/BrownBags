@@ -1,4 +1,3 @@
-BrownBags
+Android Performance
 =========
-
-Sample code from the brown bag presentations
+Android Performance brown bag support files and slides
