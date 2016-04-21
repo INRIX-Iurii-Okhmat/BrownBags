@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Watch Face Sample</string>
+
+    <string name="analog_name">Sample Analog</string>
+</resources>

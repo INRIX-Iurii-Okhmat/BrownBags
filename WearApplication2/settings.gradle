@@ -1,0 +1,4 @@
+include ':mobile', ':wear'
+
+include ':wear-common'
+project(':wear-common').projectDir = new File(settingsDir, '../WearCommon/lib')

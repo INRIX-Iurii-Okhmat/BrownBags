@@ -1,4 +1,3 @@
-BrownBags
-=========
+# Brownbag - Android Wear
 
-Sample code from the brown bag presentations
+Sample projects, slides from "Android Wear" brownbag.

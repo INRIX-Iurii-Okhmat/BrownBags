@@ -1,0 +1,85 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/btnSimpleNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simple Notification" />
+
+        <Button
+            android:id="@+id/btnBigTextNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Big text" />
+
+        <Button
+            android:id="@+id/btnBigPictureNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Big picture" />
+
+        <Button
+            android:id="@+id/btnWearSimpleNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wear simple" />
+
+        <Button
+            android:id="@+id/btnWearPages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wear notification with pages" />
+
+        <Button
+            android:id="@+id/btnWearSimpleActionNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wear simple notification action" />
+
+        <Button
+            android:id="@+id/btnWearMultipleActionsNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wear multiple actions" />
+
+        <Button
+            android:id="@+id/btnWearOnlyActionsNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wear only actions" />
+
+        <Button
+            android:id="@+id/btnWearGravityNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wear notification gravity" />
+
+        <Button
+            android:id="@+id/btnWearStackingNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wear notification stacking" />
+
+        <Button
+            android:id="@+id/btnWearVoiceInputNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wear voice input" />
+
+    </LinearLayout>
+</ScrollView>
