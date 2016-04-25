@@ -6,11 +6,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public abstract class BaseActivity extends Activity {
-    @InjectView(R.id.output)
+    @Bind(R.id.output)
     TextView outputText;
 
     @Override
@@ -19,7 +19,7 @@ public abstract class BaseActivity extends Activity {
 
         this.setContentView(R.layout.activity_main);
 
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
     }
 
     @Override
