@@ -5,9 +5,6 @@ import rx.Subscriber;
 import rx.functions.Action1;
 import rx.functions.Func1;
 
-/**
- * Created by iuriio on 8/27/14.
- */
 public class HelloRx {
     public static void sayHelloTo(String... names) {
         Observable.create(new Observable.OnSubscribe<Object>() {
