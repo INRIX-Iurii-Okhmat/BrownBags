@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(view ->
-                Observable.just("foo").subscribe(s -> {
+                Observable.just("rx").subscribe(s -> {
                     Snackbar.make(fab, s, Snackbar.LENGTH_SHORT).show();
                 }));
     }

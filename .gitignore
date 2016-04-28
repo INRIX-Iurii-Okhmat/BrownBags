@@ -24,3 +24,4 @@ proguard/
 RxDemoApplication/.idea
 *.iml
 RxSimple/.idea
+RxAndroid/.idea
