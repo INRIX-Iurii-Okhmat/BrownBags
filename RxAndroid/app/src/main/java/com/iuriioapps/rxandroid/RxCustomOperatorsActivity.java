@@ -1,8 +1,10 @@
 package com.iuriioapps.rxandroid;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -11,8 +13,9 @@ import com.jakewharton.rxbinding.widget.RxTextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import rx.Observable;
+import rx.Observable.Operator;
 import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 
 public class RxCustomOperatorsActivity extends AppCompatActivity {
     @BindView(R.id.txtNumber)
@@ -21,6 +24,7 @@ public class RxCustomOperatorsActivity extends AppCompatActivity {
     @BindView(R.id.txtResponse)
     protected TextView txtResponse;
 
+    @SuppressLint("RxSubscribeOnError")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,15 +34,11 @@ public class RxCustomOperatorsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         RxTextView.textChanges(this.txtNumber)
-                .observeOn(AndroidSchedulers.mainThread())
                 .map(String::valueOf)
                 .map(this::tryParseInt)
-                .lift(new SequenceOperator())
+                .lift(new SqrtOperator())
                 .map(sqrt -> String.format("SQRT is %d", sqrt))
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        result -> txtResponse.setText(result),
-                        error -> txtResponse.setText(error.getMessage()));
+                .subscribe(result -> txtResponse.setText(result));
 
     }
 
@@ -46,7 +46,7 @@ public class RxCustomOperatorsActivity extends AppCompatActivity {
         return TextUtils.isEmpty(value) ? 0 : Integer.parseInt(value);
     }
 
-    public static class SequenceOperator implements Observable.Operator<Integer, Integer> {
+    public static class SqrtOperator implements Observable.Operator<Integer, Integer> {
         @Override
         public Subscriber<? super Integer> call(Subscriber<? super Integer> subscriber) {
             return new Subscriber<Integer>(subscriber) {

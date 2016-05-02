@@ -37,8 +37,20 @@
 
     <Button
         android:id="@+id/btn_custom_operators"
-        android:text="Custom Operators"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Custom Operators"/>
+
+    <Button
+        android:id="@+id/btn_unsubscribe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Unsubscribe"/>
+
+    <Button
+        android:id="@+id/btn_sideeffects"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Side-effects"/>
 
 </LinearLayout>

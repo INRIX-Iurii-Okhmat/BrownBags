@@ -52,6 +52,8 @@ dependencies {
     compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
     compile 'com.jakewharton.rxbinding:rxbinding-design:0.4.0'
     compile 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7:0.4.0'
+
+    compile 'nl.littlerobots.rxlint:rxlint:1.0'
 }
 
 String getJavaHome(String version)

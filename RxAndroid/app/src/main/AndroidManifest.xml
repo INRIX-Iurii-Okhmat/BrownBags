@@ -22,6 +22,8 @@
         <activity android:name=".RxBindingsActivity"/>
         <activity android:name=".RxAndroidSchedulerActivity"/>
         <activity android:name=".RxCustomOperatorsActivity"/>
+        <activity android:name=".RxUnsubscribeActivity"/>
+        <activity android:name=".RxSideeffectMethodsActivity"/>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.iuriioapps.rxandroid;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.util.concurrent.TimeUnit;
@@ -33,6 +34,8 @@ public class RxAndroidSchedulerActivity extends AppCompatActivity {
                 .map(String::valueOf)
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this.text::setText);
+                .subscribe(
+                        text -> this.text.setText(text),
+                        e -> Log.e("ERROR", e.toString()));
     }
 }

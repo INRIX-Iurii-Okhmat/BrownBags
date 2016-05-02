@@ -1,8 +1,8 @@
 package com.iuriioapps.rxandroid;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -40,5 +40,15 @@ public class LauncherActivity extends AppCompatActivity {
     @OnClick(R.id.btn_custom_operators)
     protected void onCustomOperatorsClick() {
         this.startActivity(new Intent(this, RxCustomOperatorsActivity.class));
+    }
+
+    @OnClick(R.id.btn_unsubscribe)
+    protected void onUnsubscribeClick() {
+        this.startActivity(new Intent(this, RxUnsubscribeActivity.class));
+    }
+
+    @OnClick(R.id.btn_sideeffects)
+    protected void onSideEffectsClick() {
+        this.startActivity(new Intent(this, RxSideeffectMethodsActivity.class));
     }
 }
