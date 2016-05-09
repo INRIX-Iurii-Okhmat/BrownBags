@@ -43,7 +43,6 @@ public class RxUnsubscribeActivity extends RxAppCompatActivity {
 
         DAL.getIncidents()
                 .compose(this.bindToLifecycle())
-                .cache()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

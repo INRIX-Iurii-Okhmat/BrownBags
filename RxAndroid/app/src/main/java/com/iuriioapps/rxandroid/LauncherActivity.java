@@ -51,4 +51,9 @@ public class LauncherActivity extends AppCompatActivity {
     protected void onSideEffectsClick() {
         this.startActivity(new Intent(this, RxSideeffectMethodsActivity.class));
     }
+
+    @OnClick(R.id.btn_retry)
+    protected void onRetryClick() {
+        this.startActivity(new Intent(this, RxRetryActivity.class));
+    }
 }
