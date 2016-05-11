@@ -52,8 +52,8 @@ public class LauncherActivity extends AppCompatActivity {
         this.startActivity(new Intent(this, RxSideeffectMethodsActivity.class));
     }
 
-    @OnClick(R.id.btn_retry)
-    protected void onRetryClick() {
-        this.startActivity(new Intent(this, RxRetryActivity.class));
+    @OnClick(R.id.btn_multi_source)
+    protected void onMultiSourceClick() {
+        this.startActivity(new Intent(this, RxMultipleSourcesActivity.class));
     }
 }

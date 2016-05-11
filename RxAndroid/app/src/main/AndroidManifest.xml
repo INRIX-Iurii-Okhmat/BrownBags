@@ -24,7 +24,7 @@
         <activity android:name=".RxCustomOperatorsActivity"/>
         <activity android:name=".RxUnsubscribeActivity"/>
         <activity android:name=".RxSideeffectMethodsActivity"/>
-        <activity android:name=".RxRetryActivity" />
+        <activity android:name=".RxMultipleSourcesActivity"/>
     </application>
 
 </manifest>
