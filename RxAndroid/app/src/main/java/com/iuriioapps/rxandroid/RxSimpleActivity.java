@@ -1,5 +1,6 @@
 package com.iuriioapps.rxandroid;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
@@ -28,6 +29,7 @@ public class RxSimpleActivity extends AppCompatActivity {
         this.btn.setOnClickListener((view) -> simpleObservable());
     }
 
+    @SuppressLint("RxSubscribeOnError")
     private void simpleObservable() {
         final String[] words = {"Lorem", "ipsum", "dolor", "sit", "amet"};
 
