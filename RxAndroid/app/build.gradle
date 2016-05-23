@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.fernandocejas.frodo'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
@@ -30,6 +31,10 @@ android {
 retrolambda {
     jdk System.getenv("JAVA8_HOME") ?: getJavaHome("1.8")
     oldJdk System.getenv("JAVA7_HOME") ?: getJavaHome("1.7")
+}
+
+frodo {
+    enabled = true
 }
 
 dependencies {

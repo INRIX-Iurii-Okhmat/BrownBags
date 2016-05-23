@@ -1,5 +1,6 @@
 package com.iuriioapps.rxandroid;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -24,6 +25,7 @@ public class RxLifecycleActivity extends RxAppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("RxSubscribeOnError")
     @OnClick(R.id.btn)
     protected void onBtnClick() {
         Observable

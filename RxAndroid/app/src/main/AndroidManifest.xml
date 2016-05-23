@@ -25,6 +25,8 @@
         <activity android:name=".RxUnsubscribeActivity"/>
         <activity android:name=".RxSideeffectMethodsActivity"/>
         <activity android:name=".RxMultipleSourcesActivity"/>
+        <activity android:name=".RxDebugLoggingActivity"/>
+        <activity android:name=".RxRepeatWhenActivity"/>
     </application>
 
 </manifest>

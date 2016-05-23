@@ -56,4 +56,14 @@ public class LauncherActivity extends AppCompatActivity {
     protected void onMultiSourceClick() {
         this.startActivity(new Intent(this, RxMultipleSourcesActivity.class));
     }
+
+    @OnClick(R.id.btn_rx_repeated)
+    protected void onRepeatedCallsClick() {
+        this.startActivity(new Intent(this, RxRepeatWhenActivity.class));
+    }
+
+    @OnClick(R.id.btn_rx_debug_logging)
+    protected void onDebugLoggingClick() {
+        this.startActivity(new Intent(this, RxDebugLoggingActivity.class));
+    }
 }
